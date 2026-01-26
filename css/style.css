@@ -1,0 +1,1389 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #FF9B5A;
+    --secondary-color: #FFD700;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-cream: #FFF8F0;
+    --bg-white: #FFFFFF;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Section Layout - 1920x1080 Full Screen */
+.section {
+    width: 100%;
+    height: 1080px;
+    max-height: 1080px;
+    min-height: 1080px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-content {
+    width: 1920px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 섹션2, 3, 7: 위쪽 공백 제거 */
+.section-2 .section-content,
+.section-3 .section-content,
+.section-7 .section-content {
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Section 1: Hero */
+.section-1 {
+    background-color: var(--bg-white);
+}
+
+.logo-header {
+    position: absolute;
+    top: 30px;
+    left: 80px;
+}
+
+.logo-header img {
+    height: 70px;
+    width: auto;
+}
+
+/* Language Selector */
+.language-selector {
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    font-size: 16px;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+.current-language {
+    font-weight: 500;
+}
+
+.dropdown-arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.language-selector.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 8px 0;
+    min-width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.language-selector.active .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-dropdown li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.language-dropdown li:hover {
+    background-color: #f5f5f5;
+}
+
+.language-dropdown li[data-lang="ja"] {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 0;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    flex: 0 0 55%;
+    max-width: 700px;
+    transform: translateY(-50px);
+    margin-left: 80px;
+}
+
+.hero-subtitle {
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.hero-logo-text {
+    font-size: 68px;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 35px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 45px;
+    font-weight: 400;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Section 7 Footer의 버튼은 중앙 정렬 */
+.footer-cta .app-buttons {
+    justify-content: center;
+}
+
+.app-btn img {
+    height: 55px;
+    width: auto;
+}
+
+.hero-image {
+    flex: 0 0 42%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 0;
+    transform: translateY(-30px);
+}
+
+.hero-image img {
+    max-width: 80%;
+    height: auto;
+    transform: rotate(-3deg);
+}
+
+/* Section 2, 3, 4: Features */
+.section-2,
+.section-3,
+.section-4 {
+    background-color: var(--bg-white);
+}
+
+/* Section 2 specific: larger image, shift right */
+.section-2 .feature-container {
+    margin-left: 200px;
+}
+
+.section-2 .feature-image {
+    flex: 0 0 40%;
+}
+
+.section-2 .feature-image img {
+    max-width: 75%;
+}
+
+/* Section 3 specific: smaller gap */
+.section-3 .feature-container {
+    gap: 20px;
+}
+
+.section-3 .feature-image {
+    flex: 0 0 42%;
+    margin-right: -80px;
+    margin-left: -50px;
+}
+
+.section-3 .feature-image img {
+    max-width: 90%;
+}
+
+.section-3 .feature-text {
+    flex: 0 0 60%;
+    max-width: 700px;
+}
+
+/* Section 4 specific: larger image, shift right */
+.section-4 .feature-container {
+    margin-left: 240px;
+}
+
+.section-4 .feature-image {
+    flex: 0 0 40%;
+}
+
+.section-4 .feature-image img {
+    max-width: 75%;
+}
+
+.feature-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.feature-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-container.reverse .feature-text {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.feature-container:not(.reverse) .feature-text {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.feature-image {
+    flex: 0 0 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+}
+
+.feature-image img {
+    max-width: 65%;
+    height: auto;
+}
+
+.feature-text {
+    flex: 0 0 55%;
+    max-width: 650px;
+    transform: translateY(0);
+}
+
+.feature-title {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.feature-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin-bottom: 35px;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #FF8A4A 100%);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 155, 90, 0.3);
+}
+
+/* Section 5: Award & Testimonials */
+.section-5 {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+.section-5 .section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.award-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.award-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.award-number {
+    font-size: 60px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.award-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Section 6: Gallery */
+.section-6 {
+    background-color: var(--bg-white);
+    overflow: hidden;
+}
+
+.section-6 .section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 100px;
+}
+
+.gallery-section {
+    margin-bottom: 15px;
+}
+
+.gallery-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.gallery-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 30px;
+    animation: scroll-left 40s linear infinite;
+    width: fit-content;
+}
+
+.gallery-track:hover {
+    animation-play-state: paused;
+}
+
+.gallery-item {
+    flex-shrink: 0;
+    width: 480px;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonial-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.testimonial-box {
+    background-color: var(--bg-white);
+    border: none;
+    border-radius: 20px;
+    padding: 25px 10px;
+    text-align: center;
+    color: var(--text-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 68%;
+    max-width: 680px;
+}
+
+.testimonial-box:nth-child(odd) {
+    align-self: flex-start;
+    margin-left: 0;
+}
+
+.testimonial-box:nth-child(even) {
+    align-self: flex-end;
+    margin-right: 0;
+}
+
+.testimonial-text {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Section 7: Footer */
+.section-7 {
+    background-color: var(--bg-white);
+    height: 1080px;
+    min-height: 1080px;
+    max-height: 1080px;
+}
+
+.section-7 .section-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    padding-top: 0;
+    height: 100%;
+}
+
+.footer-top {
+    width: 100%;
+    background-color: var(--bg-white);
+    padding: 220px 100px 30px; /* 180px → 220px, 조금 내림 */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+}
+
+.footer-bottom {
+    width: 100%;
+    background-color: #FCF5E4;
+    padding: 10px 100px 10px;
+    flex-shrink: 0;
+}
+
+.footer-cta {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: var(--text-dark);
+}
+
+.footer-logo {
+    margin: 35px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo img {
+    max-width: 135px;
+    width: 135px;
+    height: auto;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-info {
+    flex: 1;
+}
+
+.footer-text {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.footer-copyright {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.footer-logo-small {
+    flex-shrink: 0;
+}
+
+.footer-logo-small img {
+    height: 80px;
+    width: auto;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Initial hidden state */
+.hero-image,
+.feature-image,
+.testimonial-box {
+    opacity: 0;
+}
+
+/* Animation classes */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Section images animation */
+.hero-image.fade-in-up {
+    animation-delay: 0.3s;
+}
+
+.section-2 .feature-image.fade-in-up {
+    animation-delay: 0.3s;
+}
+
+.section-3 .feature-image.fade-in-up {
+    animation-delay: 0.3s;
+}
+
+.section-4 .feature-image.fade-in-up {
+    animation-delay: 0.3s;
+}
+
+/* Testimonial boxes sequential animation */
+.testimonial-box:nth-child(1).fade-in-up {
+    animation-delay: 0.2s;
+}
+
+.testimonial-box:nth-child(2).fade-in-up {
+    animation-delay: 0.4s;
+}
+
+.testimonial-box:nth-child(3).fade-in-up {
+    animation-delay: 0.6s;
+}
+
+.testimonial-box:nth-child(4).fade-in-up {
+    animation-delay: 0.8s;
+}
+
+/* ============================================
+   반응형 디자인 - 세이브포인트별 적용
+   ============================================ */
+
+/* 세이브포인트 1: 노트북 (1281px ~ 1920px) */
+@media (max-width: 1920px) and (min-width: 1281px) {
+    .section {
+        height: 56.25vw; /* 16:9 비율 유지 */
+        min-height: 700px;
+        max-height: 1080px;
+    }
+    
+    .section-content {
+        padding: 0 5vw;
+    }
+    
+    /* Header */
+    .logo-header {
+        top: 30px;
+        left: 5vw;
+    }
+    
+    .logo-header img {
+        height: 60px;
+    }
+    
+    .language-selector {
+        top: 35px;
+        right: 5vw;
+        font-size: 15px;
+    }
+    
+    .dropdown-arrow {
+        font-size: 13px;
+    }
+    
+    /* 세이브포인트 2: Hero Section - 헤더 침범 방지 */
+    .hero-text {
+        transform: translateY(-30px); /* -50px에서 -30px로 조정 */
+    }
+    
+    .hero-title {
+        font-size: 38px;
+    }
+    
+    .hero-logo-text {
+        font-size: 60px;
+    }
+    
+    .hero-subtitle {
+        font-size: 26px;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    
+    .app-btn img {
+        height: 50px;
+    }
+    
+    /* Features */
+    .feature-title {
+        font-size: 34px;
+    }
+    
+    .feature-description {
+        font-size: 17px;
+    }
+    
+    /* Award */
+    .award-title {
+        font-size: 22px;
+    }
+    
+    .award-number {
+        font-size: 54px;
+    }
+    
+    .award-subtitle {
+        font-size: 17px;
+    }
+    
+    .testimonial-text {
+        font-size: 22px;
+    }
+    
+    /* Gallery */
+    .gallery-title {
+        font-size: 30px;
+    }
+    
+    .gallery-item {
+        width: 420px;
+        height: 280px;
+    }
+    
+    /* Footer */
+    .footer-title {
+        font-size: 30px;
+    }
+    
+    .footer-logo img {
+        max-width: 120px;
+        width: 120px;
+    }
+    
+    .footer-text,
+    .footer-links,
+    .footer-copyright {
+        font-size: 12px;
+    }
+    
+    .footer-logo-small img {
+        height: 70px;
+    }
+}
+
+/* 세이브포인트 3: 태블릿 (769px ~ 1280px) - 세로 레이아웃 전환 */
+@media (max-width: 1280px) and (min-width: 769px) {
+    .section {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 0;
+    }
+    
+    .section-content {
+        padding: 40px 40px;
+    }
+    
+    /* Header */
+    .logo-header {
+        top: 25px;
+        left: 40px;
+    }
+    
+    .logo-header img {
+        height: 55px;
+    }
+    
+    .language-selector {
+        top: 30px;
+        right: 40px;
+        font-size: 15px;
+    }
+    
+    /* Hero Section - 세로 레이아웃 + 이미지를 텍스트 사이에 배치 */
+    .hero-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .hero-text {
+        flex: 1;
+        max-width: 100%;
+        margin-left: 0;
+        transform: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-subtitle {
+        font-size: 22px;
+        order: 1;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+        order: 2;
+    }
+    
+    .hero-logo-text {
+        font-size: 50px;
+        order: 3;
+    }
+    
+    /* 이미지를 텍스트 사이에 배치 - 1/4 지점이 중앙 */
+    .hero-image {
+        order: 4;
+        margin: 20px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        left: 10%; /* 오른쪽으로 더 이동 */
+    }
+    
+    .hero-image img {
+        max-width: 50%;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+        order: 5;
+    }
+    
+    /* 버튼 가로 배치 */
+    .app-buttons {
+        order: 6;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .app-btn img {
+        height: 48px;
+    }
+    
+    /* Feature Sections - 세로 레이아웃 */
+    .feature-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .feature-container.reverse {
+        flex-direction: column;
+    }
+    
+    .section-2 .feature-container,
+    .section-3 .feature-container,
+    .section-4 .feature-container {
+        margin-left: 0;
+    }
+    
+    .section-3 .feature-image {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+    .feature-image {
+        flex: 1;
+        margin: 0 !important;
+    }
+    
+    /* 섹션 2: 중앙 정렬 */
+    .section-2 .section-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section-2 .feature-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    /* 섹션 2: 이미지 크기 축소 */
+    .section-2 .feature-image img {
+        max-width: 35%; /* 더 축소 */
+    }
+    
+    /* 섹션 3, 4: 중앙 정렬 */
+    .section-3 .section-content,
+    .section-4 .section-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .section-3 .feature-container,
+    .section-4 .feature-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* 섹션 3, 4: 이미지 크기 축소 + 중앙 정렬 */
+    .section-3 .feature-image img,
+    .section-4 .feature-image img {
+        max-width: 32%; /* 더 축소 */
+    }
+    
+    .feature-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .feature-text {
+        flex: 1;
+        max-width: 100%;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-title {
+        font-size: 30px;
+    }
+    
+    .feature-description {
+        font-size: 16px;
+    }
+    
+    /* Award */
+    .award-title {
+        font-size: 20px;
+    }
+    
+    .award-number {
+        font-size: 48px;
+    }
+    
+    .award-subtitle {
+        font-size: 16px;
+    }
+    
+    /* 섹션 5: 텍스트 박스 길이 증가 + 텍스트 크기 축소 */
+    .testimonial-box {
+        width: 85%;
+        max-width: 600px;
+    }
+    
+    .testimonial-text {
+        font-size: 18px;
+    }
+    
+    /* Gallery - 양옆 간격 제거 */
+    .section-6 .section-content {
+        padding: 40px 0;
+    }
+    
+    .gallery-title {
+        font-size: 28px;
+        padding: 0 40px;
+    }
+    
+    .gallery-item {
+        width: 360px;
+        height: 240px;
+    }
+    
+    /* Footer - 중앙 정렬 + 하단 공간 제거 */
+    .section-7 {
+        padding-bottom: 0;
+    }
+    
+    .section-7 .section-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px; /* 위로 더 올림 */
+    }
+    
+    .footer-top {
+        padding: 0 40px 30px; /* 위쪽 padding 제거 */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-cta {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-title {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px; /* 로고 아래 공간 증가 (1줄 정도) */
+    }
+    
+    .footer-logo img {
+        max-width: 110px;
+        width: 110px;
+    }
+    
+    .footer-bottom {
+        padding: 20px 40px 10px; /* 배경색 영역 확보 */
+        width: 100%;
+    }
+    
+    .footer {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-info {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-text,
+    .footer-links,
+    .footer-copyright {
+        text-align: center;
+    }
+    
+    .footer-logo-small {
+        margin: 0 auto;
+    }
+    
+    .footer-logo-small img {
+        height: 60px;
+    }
+}
+
+/* 세이브포인트 3: 모바일 (768px 이하) */
+@media (max-width: 768px) {
+    .section {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 0;
+    }
+    
+    .section-content {
+        padding: 40px 20px;
+    }
+    
+    /* Header */
+    .logo-header {
+        top: 20px;
+        left: 20px;
+    }
+    
+    .logo-header img {
+        height: 45px;
+    }
+    
+    .language-selector {
+        top: 20px;
+        right: 20px;
+        font-size: 14px;
+    }
+    
+    .dropdown-arrow {
+        font-size: 12px;
+    }
+    
+    /* Hero Section - 텍스트 사이에 이미지 배치 */
+    .hero-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .hero-text {
+        flex: 1;
+        max-width: 100%;
+        margin-left: 0;
+        transform: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+        order: 1;
+    }
+    
+    .hero-title {
+        font-size: 22px;
+        order: 2;
+    }
+    
+    .hero-logo-text {
+        font-size: 36px;
+        order: 3;
+    }
+    
+    /* 이미지를 텍스트 사이에 배치 - 1/4 지점이 중앙 */
+    .hero-image {
+        order: 4;
+        margin: 15px 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        left: 10%; /* 오른쪽으로 더 이동 */
+    }
+    
+    .hero-image img {
+        max-width: 60%;
+    }
+    
+    .hero-description {
+        font-size: 14px;
+        order: 5;
+    }
+    
+    /* 버튼 가로 배치 */
+    .app-buttons {
+        order: 6;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .app-btn img {
+        height: 42px;
+    }
+    
+    /* Feature Sections - 중앙 정렬 */
+    .feature-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .feature-container.reverse {
+        flex-direction: column;
+    }
+    
+    .section-2 .feature-container,
+    .section-3 .feature-container,
+    .section-4 .feature-container {
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* 섹션 2, 3, 4 컨테너 중앙 정렬 */
+    .section-2 .section-content,
+    .section-3 .section-content,
+    .section-4 .section-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .section-3 .feature-image {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+    .feature-image {
+        flex: 1;
+        margin: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    /* 섹션 2, 4: 이미지 크기 축소 */
+    .section-2 .feature-image img,
+    .section-4 .feature-image img {
+        max-width: 50%; /* 축소 */
+    }
+    
+    /* 섹션 3: 이미지 크기 축소 */
+    .section-3 .feature-image img {
+        max-width: 45%;
+    }
+    
+    .feature-image img {
+        max-width: 60%; /* 기본 크기 축소 */
+    }
+    
+    .feature-text {
+        flex: 1;
+        max-width: 100%;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-title {
+        font-size: 24px;
+    }
+    
+    .feature-description {
+        font-size: 14px;
+    }
+    
+    .cta-button {
+        padding: 14px 35px;
+        font-size: 16px;
+    }
+    
+    /* 섹션 5: 텍스트 박스 중앙 정렬 */
+    .award-container {
+        text-align: center;
+    }
+    
+    .award-title {
+        font-size: 17px;
+        padding: 0 20px;
+        line-height: 1.4;
+    }
+    
+    .award-number {
+        font-size: 40px;
+    }
+    
+    .award-subtitle {
+        font-size: 14px;
+    }
+    
+    .testimonial-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial-box {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px 15px;
+        align-self: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .testimonial-text {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    /* Gallery */
+    .section-6 .section-content {
+        padding: 40px 0;
+    }
+    
+    .gallery-title {
+        font-size: 22px;
+        padding: 0 20px;
+        margin-bottom: 40px;
+    }
+    
+    .gallery-item {
+        width: 280px;
+        height: 187px;
+    }
+    
+    /* Footer - 중앙 정렬 + 위로 이동 */
+    .section-7 {
+        padding-bottom: 0 !important;
+        min-height: auto !important;
+        height: auto !important; /* 고정 높이 완전 제거 */
+        max-height: none !important;
+        padding-top: 0 !important;
+    }
+    
+    .section-7 .section-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important; /* 위쪽 정렬 */
+        padding-bottom: 0 !important;
+        padding-top: 140px !important; /* 100px → 140px로 더 위로 */
+        min-height: auto !important;
+        height: auto !important;
+    }
+    
+    .footer-top {
+        padding: 0 20px 50px; /* 30px → 50px, CTA와 푸터 사이 공간 추가 */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .footer-cta {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-title {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px; /* 로고 아래 공간 확보 */
+    }
+    
+    .footer-logo img {
+        max-width: 100px;
+        width: 100px;
+    }
+    
+    .footer-bottom {
+        padding: 20px 20px 15px; /* 배경색 영역 */
+        width: 100%;
+        margin-top: auto; /* 아래로 밀기 */
+    }
+    
+    .footer {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-info {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-text,
+    .footer-links,
+    .footer-copyright {
+        font-size: 11px;
+        text-align: center;
+    }
+    
+    .footer-logo-small {
+        margin: 0 auto;
+    }
+    
+    .footer-logo-small img {
+        height: 50px;
+    }
+}
